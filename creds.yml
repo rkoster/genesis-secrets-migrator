@@ -131,12 +131,12 @@ credentials:
 - name: (( concat credhub_prefix "/diego_ssh_proxy_host_key" ))
   type: ssh
   value:
-    public_key: ((vault vault_prefix "key_path"))
+    public_key: ((vault vault_prefix "ssh_proxy/host_key/public"))
     private_key: ((vault vault_prefix "ssh_proxy/host_key/private"))
 - name: (( concat credhub_prefix "/uaa_jwt_signing_key" ))
   type: rsa
   value:
-    public_key: ((vault vault_prefix "key_path"))
+    public_key: ((vault vault_prefix "uaa/jwt_signing_key/public"))
     private_key: ((vault vault_prefix "uaa/jwt_signing_key/private"))
 - name: (( concat credhub_prefix "/service_cf_internal_ca" ))
   type: certificate
@@ -345,8 +345,8 @@ credentials:
 - name: (( concat credhub_prefix "/uaa_login_saml" ))
   type: certificate
   value:
-    certificate: ((vault vault_prefix "TODO"))
-    private_key: ((vault vault_prefix "TODO"))
+    certificate: ((vault vault_prefix "uaa/certs/login_saml/certificate"))
+    private_key: ((vault vault_prefix "uaa/certs/login_saml/key"))
     ca: uaa_ca
 - name: (( concat credhub_prefix "/cc_tls" ))
   type: certificate

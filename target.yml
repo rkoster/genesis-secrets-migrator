@@ -549,6 +549,10 @@ instance_groups:
         saml:
           activeKeyId: key-1
           keys:
+            default_key:
+              certificate: ((uaa_login_saml.certificate))
+              key: ((uaa_login_saml.private_key))
+              passphrase: ""
             key-1:
               certificate: ((uaa_login_saml.certificate))
               key: ((uaa_login_saml.private_key))
