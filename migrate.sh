@@ -91,8 +91,8 @@ for variable in $(spruce json ${target} | jq -r -c '.variables[] | @base64'); do
             ca="    ca: $(_jq '.options.ca')"
             if [[ "$(_jq .options.is_ca)" == "true" ]]; then
                 scope="$(echo ${name} | sed -e 's/_ca$//g')"
-                cert_path="/${scope}/certs/ca:certificate"
-                key_path="/${scope}/certs/ca:key"
+                cert_path="${scope}/certs/ca:certificate"
+                key_path="${scope}/certs/ca:key"
                 ca=""
             fi
             echo "- name: (( concat credhub_prefix \"/${name}\" ))"
