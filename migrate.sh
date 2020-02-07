@@ -37,7 +37,7 @@ target_paths=$(to_property_paths ${target} |
 vault_paths=$(to_vault_paths ${vault} | sed 's@secret/ci/baseline/cf/@@g')
 
 get_path_for_value() {
-    jq -r --arg v "${1}" 'to_entries | map(select(.value == $v))[0].key'
+    jq -r --arg v "${1}" --arg i "${2}" 'to_entries | map(select(.value == $v))[$i|tonumber].key'
 }
 
 get_value_for_path() {
@@ -45,13 +45,22 @@ get_value_for_path() {
 }
 
 get_src_path() {
-    path=$(echo ${target_paths} | get_path_for_value "${1}")
-    value=$(echo ${source_paths} | get_value_for_path "${path}")
-    src_path=$(echo ${vault_paths} | get_path_for_value "${value}")
-    if [[ "${src_path}" == "null" ]]; then
-        src_path="TODO"
-    fi
-    echo "${src_path}"
+    i=0
+    while true; do
+        path=$(echo ${target_paths} | get_path_for_value "${1}" "${i}")
+        if [[ "${path}" == "null" ]]; then
+            echo "TODO"
+            break
+        fi
+        value=$(echo ${source_paths} | get_value_for_path "${path}")
+        src_path=$(echo ${vault_paths} | get_path_for_value "${value}" "0")
+        if [[ "${src_path}" != "null" ]]; then
+            echo "${src_path}"
+            break
+        fi
+        ((i++))
+    done
+
 }
 
 echo "credentials:"

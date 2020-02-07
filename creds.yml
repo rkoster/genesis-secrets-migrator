@@ -10,7 +10,7 @@ credentials:
   value: ((vault vault_prefix "cc/bulk_api"))
 - name: (( concat credhub_prefix "/cc_db_encryption_key" ))
   type: password
-  value: ((vault vault_prefix "TODO"))
+  value: ((vault vault_prefix "cc/db_encryption_key"))
 - name: (( concat credhub_prefix "/cc_internal_api_password" ))
   type: password
   value: ((vault vault_prefix "cc/internal_api"))
@@ -53,8 +53,8 @@ credentials:
 - name: (( concat credhub_prefix "/silk_daemon" ))
   type: certificate
   value:
-    certificate: ((vault vault_prefix "TODO"))
-    private_key: ((vault vault_prefix "TODO"))
+    certificate: ((vault vault_prefix "silk/certs/daemon/certificate"))
+    private_key: ((vault vault_prefix "silk/certs/daemon/key"))
     ca: silk_ca
 - name: (( concat credhub_prefix "/network_policy_ca" ))
   type: certificate
@@ -192,8 +192,8 @@ credentials:
 - name: (( concat credhub_prefix "/diego_rep_client" ))
   type: certificate
   value:
-    certificate: ((vault vault_prefix "TODO"))
-    private_key: ((vault vault_prefix "TODO"))
+    certificate: ((vault vault_prefix "cf_internal/certs/diego_rep_client/certificate"))
+    private_key: ((vault vault_prefix "cf_internal/certs/diego_rep_client/key"))
     ca: service_cf_internal_ca
 - name: (( concat credhub_prefix "/diego_rep_agent_v2" ))
   type: certificate
