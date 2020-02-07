@@ -1,3 +1,4 @@
+# We use community-postgres so all references to mysql variables can be removed
 - type: remove
   path: /variables/name=cf_mysql_mysql_admin_password
 - type: remove
@@ -10,3 +11,29 @@
   path: /variables/name=cf_mysql_proxy_api_password
 - type: remove
   path: /variables/name=cc_database_password
+
+# first try without routing-api (there is an add on for it in the kit)
+# - type: remove
+#   path: /variables/name=routing_api_tls_client
+# - type: remove
+#   path: /variables/name=routing_api_tls
+# - type: remove
+#   path: /variables/name=routing_api_database_password
+- type: remove
+  path: /variables/name=uaa_clients_routing_api_client_secret
+
+# unused variables should probably create and upstream issue to get rid of them
+- type: remove
+  path: /variables/name=cf_bosh_password
+- type: remove
+  path: /variables/name=log_cache_to_loggregator_agent
+
+# cf-kit has no credhub
+- type: remove
+  path: /variables/name=credhub_tls
+- type: remove
+  path: /variables/name=credhub_database_password
+- type: remove
+  path: /variables/name=credhub_encryption_password
+- type: remove
+  path: /variables/name=credhub_admin_client_secret

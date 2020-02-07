@@ -17,9 +17,6 @@ credentials:
 - name: (( concat credhub_prefix "/cc_staging_upload_password" ))
   type: password
   value: ((vault vault_prefix "cc/staging_upload"))
-- name: (( concat credhub_prefix "/credhub_database_password" ))
-  type: password
-  value: ((vault vault_prefix "routingapidb/password"))
 - name: (( concat credhub_prefix "/diego_database_password" ))
   type: password
   value: ((vault vault_prefix "diegodb/password"))
@@ -80,9 +77,6 @@ credentials:
     certificate: ((vault vault_prefix "network_policy/certs/client/certificate"))
     private_key: ((vault vault_prefix "network_policy/certs/client/key"))
     ca: network_policy_ca
-- name: (( concat credhub_prefix "/uaa_clients_routing_api_client_secret" ))
-  type: password
-  value: ((vault vault_prefix "TODO"))
 - name: (( concat credhub_prefix "/uaa_clients_tcp_emitter_secret" ))
   type: password
   value: ((vault vault_prefix "uaa/client_secrets/tcp_emitter"))
@@ -95,9 +89,6 @@ credentials:
 - name: (( concat credhub_prefix "/cf_admin_password" ))
   type: password
   value: ((vault vault_prefix "admin_user/password"))
-- name: (( concat credhub_prefix "/cf_bosh_password" ))
-  type: password
-  value: ((vault vault_prefix "TODO"))
 - name: (( concat credhub_prefix "/router_route_services_secret" ))
   type: password
   value: ((vault vault_prefix "gorouter/route_services/secret"))
@@ -137,21 +128,15 @@ credentials:
 - name: (( concat credhub_prefix "/diego_bbs_encryption_keys_passphrase" ))
   type: password
   value: ((vault vault_prefix "diego/encryption_key/value"))
-- name: (( concat credhub_prefix "/credhub_encryption_password" ))
-  type: password
-  value: ((vault vault_prefix "TODO"))
-- name: (( concat credhub_prefix "/credhub_admin_client_secret" ))
-  type: password
-  value: ((vault vault_prefix "TODO"))
 - name: (( concat credhub_prefix "/diego_ssh_proxy_host_key" ))
   type: ssh
   value:
-    public_key: ((vault vault_prefix "TODO"))
+    public_key: ((vault vault_prefix "key_path"))
     private_key: ((vault vault_prefix "ssh_proxy/host_key/private"))
 - name: (( concat credhub_prefix "/uaa_jwt_signing_key" ))
   type: rsa
   value:
-    public_key: ((vault vault_prefix "TODO"))
+    public_key: ((vault vault_prefix "key_path"))
     private_key: ((vault vault_prefix "uaa/jwt_signing_key/private"))
 - name: (( concat credhub_prefix "/service_cf_internal_ca" ))
   type: certificate
@@ -297,12 +282,6 @@ credentials:
     certificate: ((vault vault_prefix "log_cache/certs/server/certificate"))
     private_key: ((vault vault_prefix "log_cache/certs/server/key"))
     ca: log_cache_ca
-- name: (( concat credhub_prefix "/log_cache_to_loggregator_agent" ))
-  type: certificate
-  value:
-    certificate: ((vault vault_prefix "TODO"))
-    private_key: ((vault vault_prefix "TODO"))
-    ca: loggregator_ca
 - name: (( concat credhub_prefix "/cc_logcache_tls" ))
   type: certificate
   value:
@@ -438,12 +417,6 @@ credentials:
     certificate: ((vault vault_prefix "/credhub/certs/ca/certificate"))
     private_key: ((vault vault_prefix "/credhub/certs/ca/key"))
 
-- name: (( concat credhub_prefix "/credhub_tls" ))
-  type: certificate
-  value:
-    certificate: ((vault vault_prefix "TODO"))
-    private_key: ((vault vault_prefix "TODO"))
-    ca: credhub_ca
 - name: (( concat credhub_prefix "/ssh_proxy_backends_tls" ))
   type: certificate
   value:

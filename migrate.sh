@@ -96,8 +96,8 @@ for variable in $(spruce json ${target} | jq -r -c '.variables[] | @base64'); do
             ;;
 
         rsa)
-            pub_path=$(get_src_path "((${name}.public_key))")
             key_path=$(get_src_path "((${name}.private_key))")
+            pub_path=$(echo "key_path" | sed -e 's/private$/public/g')
             echo "- name: (( concat credhub_prefix \"/${name}\" ))"
             echo "  type: rsa"
             echo "  value:"
@@ -106,8 +106,8 @@ for variable in $(spruce json ${target} | jq -r -c '.variables[] | @base64'); do
             ;;
 
         ssh)
-            pub_path=$(get_src_path "((${name}.public_key))")
             key_path=$(get_src_path "((${name}.private_key))")
+            pub_path=$(echo "key_path" | sed -e 's/private$/public/g')
             echo "- name: (( concat credhub_prefix \"/${name}\" ))"
             echo "  type: ssh"
             echo "  value:"

@@ -2044,8 +2044,6 @@ variables:
   type: password
 - name: cc_staging_upload_password
   type: password
-- name: credhub_database_password
-  type: password
 - name: diego_database_password
   type: password
 - name: uaa_database_password
@@ -2105,8 +2103,6 @@ variables:
     extended_key_usage:
     - client_auth
   type: certificate
-- name: uaa_clients_routing_api_client_secret
-  type: password
 - name: uaa_clients_tcp_emitter_secret
   type: password
 - name: nats_password
@@ -2114,8 +2110,6 @@ variables:
 - name: router_status_password
   type: password
 - name: cf_admin_password
-  type: password
-- name: cf_bosh_password
   type: password
 - name: router_route_services_secret
   type: password
@@ -2142,10 +2136,6 @@ variables:
 - name: uaa_clients_tcp_router_secret
   type: password
 - name: diego_bbs_encryption_keys_passphrase
-  type: password
-- name: credhub_encryption_password
-  type: password
-- name: credhub_admin_client_secret
   type: password
 - name: diego_ssh_proxy_host_key
   type: ssh
@@ -2337,13 +2327,6 @@ variables:
     - client_auth
     - server_auth
   type: certificate
-- name: log_cache_to_loggregator_agent
-  options:
-    ca: loggregator_ca
-    common_name: log-cache
-    extended_key_usage:
-    - client_auth
-  type: certificate
 - name: cc_logcache_tls
   options:
     alternative_names:
@@ -2494,14 +2477,6 @@ variables:
   options:
     common_name: credhubServerCa
     is_ca: true
-  type: certificate
-- name: credhub_tls
-  options:
-    alternative_names:
-    - credhub.service.cf.internal
-    - credhub.((system_domain))
-    ca: credhub_ca
-    common_name: credhub.((system_domain))
   type: certificate
 - name: ssh_proxy_backends_tls
   options:
