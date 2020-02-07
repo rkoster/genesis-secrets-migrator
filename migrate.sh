@@ -11,7 +11,7 @@ to_property_paths() {
   spruce json ${1} | jq -r '
     def leaves: if type == "array" or type == "object" then .[] | leaves else . end;
 
-    .instance_groups | map(.jobs | map(.name as $n | (.properties | (path(leaves) as $p | [{
+    .instance_groups + .addons | map(.jobs | map(.name as $n | (.properties | (path(leaves) as $p | [{
       key: ([$n] + ($p | [.[]|tostring])|join("/")),
       value: (getpath($p) | tostring | sub("\n"; ""; "g"))
       }])

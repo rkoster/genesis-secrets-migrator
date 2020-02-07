@@ -468,8 +468,8 @@ credentials:
 - name: (( concat credhub_prefix "/loggregator_agent_metrics_tls" ))
   type: certificate
   value:
-    certificate: ((vault vault_prefix "TODO"))
-    private_key: ((vault vault_prefix "TODO"))
+    certificate: ((vault vault_prefix "metrics/certs/loggregator_agent_metrics_tls/certificate"))
+    private_key: ((vault vault_prefix "metrics/certs/loggregator_agent_metrics_tls/key"))
     ca: metric_scraper_ca
 - name: (( concat credhub_prefix "/loggr_udp_forwarder_tls" ))
   type: certificate
@@ -480,14 +480,14 @@ credentials:
 - name: (( concat credhub_prefix "/prom_scraper_scrape_tls" ))
   type: certificate
   value:
-    certificate: ((vault vault_prefix "TODO"))
-    private_key: ((vault vault_prefix "TODO"))
+    certificate: ((vault vault_prefix "metrics/certs/prom_scraper_scrape_tls/certificate"))
+    private_key: ((vault vault_prefix "metrics/certs/prom_scraper_scrape_tls/key"))
     ca: metric_scraper_ca
 - name: (( concat credhub_prefix "/prom_scraper_metrics_tls" ))
   type: certificate
   value:
-    certificate: ((vault vault_prefix "TODO"))
-    private_key: ((vault vault_prefix "TODO"))
+    certificate: ((vault vault_prefix "metrics/certs/prom_scraper_metrics_tls/certificate"))
+    private_key: ((vault vault_prefix "metrics/certs/prom_scraper_metrics_tls/key"))
     ca: metric_scraper_ca
 - name: (( concat credhub_prefix "/rlp_gateway_metrics_tls" ))
   type: certificate
