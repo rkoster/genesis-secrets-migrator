@@ -22,10 +22,7 @@ credentials:
   value: ((vault vault_prefix "diegodb/password"))
 - name: (( concat credhub_prefix "/uaa_database_password" ))
   type: password
-  value: ((vault vault_prefix "ccdb/password"))
-- name: (( concat credhub_prefix "/routing_api_database_password" ))
-  type: password
-  value: ((vault vault_prefix "autoscalerdb/password"))
+  value: ((vault vault_prefix "uaadb/password"))
 - name: (( concat credhub_prefix "/network_policy_database_password" ))
   type: password
   value: ((vault vault_prefix "autoscalerdb/password"))
@@ -459,23 +456,11 @@ credentials:
     certificate: ((vault vault_prefix "metrics/certs/log_cache_gateway_metrics_tls/certificate"))
     private_key: ((vault vault_prefix "metrics/certs/log_cache_gateway_metrics_tls/key"))
     ca: metric_scraper_ca
-- name: (( concat credhub_prefix "/forwarder_agent_metrics_tls" ))
-  type: certificate
-  value:
-    certificate: ((vault vault_prefix "TODO"))
-    private_key: ((vault vault_prefix "TODO"))
-    ca: metric_scraper_ca
 - name: (( concat credhub_prefix "/loggregator_agent_metrics_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "metrics/certs/loggregator_agent_metrics_tls/certificate"))
     private_key: ((vault vault_prefix "metrics/certs/loggregator_agent_metrics_tls/key"))
-    ca: metric_scraper_ca
-- name: (( concat credhub_prefix "/loggr_udp_forwarder_tls" ))
-  type: certificate
-  value:
-    certificate: ((vault vault_prefix "TODO"))
-    private_key: ((vault vault_prefix "TODO"))
     ca: metric_scraper_ca
 - name: (( concat credhub_prefix "/prom_scraper_scrape_tls" ))
   type: certificate

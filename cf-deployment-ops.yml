@@ -17,10 +17,17 @@
 #   path: /variables/name=routing_api_tls_client
 # - type: remove
 #   path: /variables/name=routing_api_tls
-# - type: remove
-#   path: /variables/name=routing_api_database_password
+- type: remove
+  path: /variables/name=routing_api_database_password
 - type: remove
   path: /variables/name=uaa_clients_routing_api_client_secret
+
+
+# without addon-logging
+- type: remove
+  path: /variables/name=loggr_udp_forwarder_tls
+- type: remove
+  path: /variables/name=forwarder_agent_metrics_tls
 
 # unused variables should probably create and upstream issue to get rid of them
 - type: remove

@@ -37,7 +37,8 @@ target_paths=$(to_property_paths ${target} |
 vault_paths=$(to_vault_paths ${vault} | sed 's@secret/ci/baseline/cf/@@g')
 
 get_path_for_value() {
-    jq -r --arg v "${1}" --arg i "${2}" 'to_entries | map(select(.value == $v))[$i|tonumber].key'
+    jq -r --arg v "${1}" --arg i "${2}" 'to_entries | map(select(.value == $v)) |
+       sort_by(.key | test("/d+/")) | reverse [$i|tonumber].key'
 }
 
 get_value_for_path() {
@@ -52,6 +53,11 @@ get_src_path() {
             echo "TODO"
             break
         fi
+        # if (echo "${path}" | grep -v -Eq '\/\d+\/'); then
+        #     # skip array indexes in path
+        #     ((i++))
+        #     continue
+        # fi
         value=$(echo ${source_paths} | get_value_for_path "${path}")
         src_path=$(echo ${vault_paths} | get_path_for_value "${value}" "0")
         if [[ "${src_path}" != "null" ]]; then

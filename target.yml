@@ -2052,8 +2052,6 @@ variables:
   type: password
 - name: uaa_database_password
   type: password
-- name: routing_api_database_password
-  type: password
 - name: network_policy_database_password
   type: password
 - name: network_connectivity_database_password
@@ -2533,24 +2531,10 @@ variables:
     extended_key_usage:
     - server_auth
   type: certificate
-- name: forwarder_agent_metrics_tls
-  options:
-    ca: metric_scraper_ca
-    common_name: forwarder_agent_metrics
-    extended_key_usage:
-    - server_auth
-  type: certificate
 - name: loggregator_agent_metrics_tls
   options:
     ca: metric_scraper_ca
     common_name: loggregator_agent_metrics
-    extended_key_usage:
-    - server_auth
-  type: certificate
-- name: loggr_udp_forwarder_tls
-  options:
-    ca: metric_scraper_ca
-    common_name: loggr_udp_forwarder_metrics
     extended_key_usage:
     - server_auth
   type: certificate
