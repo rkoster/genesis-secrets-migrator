@@ -1,5 +1,5 @@
-vault_prefix: (( grab  ))
-credhub_prefix: (( grab  ))
+vault_prefix: (( grab $VAULT_PREFIX ))
+credhub_prefix: (( grab $CREDHUB_PREFIX ))
 credentials:
 - name: (( concat credhub_prefix "/blobstore_admin_users_password" ))
   type: password

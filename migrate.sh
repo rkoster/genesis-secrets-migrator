@@ -69,8 +69,8 @@ get_src_path() {
 
 }
 
-echo "vault_prefix: (( grab $VAULT_PREFIX ))"
-echo "credhub_prefix: (( grab $CREDHUB_PREFIX ))"
+echo 'vault_prefix: (( grab $VAULT_PREFIX ))'
+echo 'credhub_prefix: (( grab $CREDHUB_PREFIX ))'
 echo "credentials:"
 for variable in $(spruce json ${target} | jq -r -c '.variables[] | @base64'); do
     _jq() {
