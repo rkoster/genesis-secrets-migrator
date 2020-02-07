@@ -137,12 +137,6 @@ credentials:
   value:
     public_key: ((vault vault_prefix "uaa/jwt_signing_key:public"))
     private_key: ((vault vault_prefix "uaa/jwt_signing_key:private"))
-- name: (( concat credhub_prefix "/service_cf_internal_ca" ))
-  type: certificate
-  value:
-    certificate: ((vault vault_prefix "service_cf_internal/certs/ca:certificate"))
-    private_key: ((vault vault_prefix "service_cf_internal/certs/ca:key"))
-
 - name: (( concat credhub_prefix "/blobstore_tls" ))
   type: certificate
   value:
@@ -410,12 +404,6 @@ credentials:
     certificate: ((vault vault_prefix "cf_internal/certs/gorouter_backend_tls:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/gorouter_backend_tls:key"))
     ca: service_cf_internal_ca
-- name: (( concat credhub_prefix "/credhub_ca" ))
-  type: certificate
-  value:
-    certificate: ((vault vault_prefix "credhub/certs/ca:certificate"))
-    private_key: ((vault vault_prefix "credhub/certs/ca:key"))
-
 - name: (( concat credhub_prefix "/ssh_proxy_backends_tls" ))
   type: certificate
   value:
@@ -434,12 +422,6 @@ credentials:
     certificate: ((vault vault_prefix "cf_internal/certs/loggregator_trafficcontroller_tls:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/loggregator_trafficcontroller_tls:key"))
     ca: service_cf_internal_ca
-- name: (( concat credhub_prefix "/metric_scraper_ca" ))
-  type: certificate
-  value:
-    certificate: ((vault vault_prefix "metric_scraper/certs/ca:certificate"))
-    private_key: ((vault vault_prefix "metric_scraper/certs/ca:key"))
-
 - name: (( concat credhub_prefix "/log_cache_metrics_tls" ))
   type: certificate
   value:

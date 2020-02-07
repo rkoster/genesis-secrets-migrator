@@ -2143,11 +2143,6 @@ variables:
   type: ssh
 - name: uaa_jwt_signing_key
   type: rsa
-- name: service_cf_internal_ca
-  options:
-    common_name: internalCA
-    is_ca: true
-  type: certificate
 - name: blobstore_tls
   options:
     ca: service_cf_internal_ca
@@ -2475,11 +2470,6 @@ variables:
     extended_key_usage:
     - client_auth
   type: certificate
-- name: credhub_ca
-  options:
-    common_name: credhubServerCa
-    is_ca: true
-  type: certificate
 - name: ssh_proxy_backends_tls
   options:
     alternative_names:
@@ -2504,11 +2494,6 @@ variables:
     - log-api.service.cf.internal
     ca: service_cf_internal_ca
     common_name: doppler.((system_domain))
-  type: certificate
-- name: metric_scraper_ca
-  options:
-    common_name: metricScraperCA
-    is_ca: true
   type: certificate
 - name: log_cache_metrics_tls
   options:
