@@ -24,7 +24,7 @@ to_vault_paths() {
     def leaves: if type == "array" or type == "object" then .[] | leaves else . end;
 
     to_entries | map(.key as $n | (.value | (path(leaves) as $p | [{
-      key: ([$n] + ($p | [.[]|tostring])|join("/")),
+      key: ([$n] + ($p | [.[]|tostring])|join(":")),
       value: (getpath($p) | tostring | sub("\n"; ""; "g"))
       }])
       )) | flatten | from_entries
