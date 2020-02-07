@@ -389,23 +389,22 @@ instance_groups:
         replication:
           enabled: false
         users:
-        - password: ((uaa_database_password))
-          username: uaa
         - password: ((cc_database_password))
           username: cloud_controller
+        - password: ((uaa_database_password))
+          username: uaa
         - password: ((diego_database_password))
           username: diego
-        - password: ((credhub_database_password))
-          username: credhub
-        - password: ((network_connectivity_database_password))
-          username: network_connectivity
-        - password: ((network_policy_database_password))
-          username: network_policy
-        - password: ((locket_database_password))
-          username: locket
         - password: ((routing_api_database_password))
           username: routing-api
-
+        - password: ((network_policy_database_password))
+          username: network_policy
+        - password: ((network_connectivity_database_password))
+          username: network_connectivity
+        - password: ((locket_database_password))
+          username: locket
+        - password: ((credhub_database_password))
+          username: credhub
     release: community-postgres
   name: database
   networks:
@@ -2044,18 +2043,6 @@ variables:
 - name: cc_internal_api_password
   type: password
 - name: cc_staging_upload_password
-  type: password
-- name: cf_mysql_mysql_admin_password
-  type: password
-- name: cf_mysql_mysql_cluster_health_password
-  type: password
-- name: cf_mysql_mysql_galera_healthcheck_endpoint_password
-  type: password
-- name: cf_mysql_mysql_galera_healthcheck_password
-  type: password
-- name: cf_mysql_proxy_api_password
-  type: password
-- name: cc_database_password
   type: password
 - name: credhub_database_password
   type: password
