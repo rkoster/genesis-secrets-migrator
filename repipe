@@ -1,0 +1,3 @@
+#!/bin/bash
+
+fly -t mc-genesis set-pipeline -p genesis-secrets-migrator -c pipeline.yml

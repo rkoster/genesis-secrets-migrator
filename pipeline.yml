@@ -1,0 +1,42 @@
+jobs:
+- name: migrate-certs
+  public: false
+  plan:
+  - get: secrets
+    resource: genesis-secrets-migrator
+  - task: migrate
+    config:
+      platform: linux
+      image_resource:
+        type: registry-image
+        source: {repository: starkandwayne/concourse, tag: latest}
+      inputs:
+      - name: secrets
+      params:
+        VAULT_ADDR: ((vault_url))
+        VAULT_TOKEN: ((vault_secret))
+        VAULT_SKIP_VERIFY: true
+        VAULT_PREFIX: /secret/ci/baseline/cf/
+        CREDHUB_PREFIX: /moltencore/cf
+        CREDHUB_CLIENT: ((credhub_username))
+        CREDHUB_CA_CERT_STRING: ((credhub_ca_cert))
+        CREDHUB_SERVER: ((credhub_url))
+        CREDHUB_SECRET: ((credhub_password))
+        CREDHUB_CA_CERT: /tmp/credhub-ca
+
+      run:
+        path: /bin/bash
+        args:
+        - -ec
+        - |
+          echo -e "$CREDHUB_CA_CERT_STRING" >> $CREDHUB_CA_CERT
+
+          credhub import -f <(spruce merge --cherry-pick credentials secrets/creds.yml)
+
+
+resources:
+- name: genesis-secrets-migrator
+  type: git
+  source:
+    uri: https://github.com/rkoster/genesis-secrets-migrator
+    branch: master
