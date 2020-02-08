@@ -88,7 +88,7 @@ for variable in $(spruce json ${target} | jq -r -c '.variables[] | @base64'); do
         certificate)
             cert_path=$(get_src_path "((${name}.certificate))")
             key_path=$(get_src_path "((${name}.private_key))")
-            ca="    ca: $(_jq '.options.ca')"
+            ca="    ca: (( concat credhub_prefix \"/$(_jq '.options.ca')\" ))"
             if [[ "$(_jq .options.is_ca)" == "true" ]]; then
                 scope="$(echo ${name} | sed -e 's/_ca$//g')"
                 cert_path="${scope}/certs/ca:certificate"
