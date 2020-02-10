@@ -28,6 +28,23 @@
 - type: remove
   path: /variables/name=metric_scraper_ca
 
+# variables signed by unused ca's
+# metric_scraper_ca
+- type: remove
+  path: /variables/name=log_cache_metrics_tls
+- type: remove
+  path: /variables/name=log_cache_cf_auth_proxy_metrics_tls
+- type: remove
+  path: /variables/name=log_cache_gateway_metrics_tls
+- type: remove
+  path: /variables/name=loggregator_agent_metrics_tls
+- type: remove
+  path: /variables/name=prom_scraper_scrape_tls
+- type: remove
+  path: /variables/name=prom_scraper_metrics_tls
+- type: remove
+  path: /variables/name=rlp_gateway_metrics_tls
+
 # without addon-logging
 - type: remove
   path: /variables/name=loggr_udp_forwarder_tls
