@@ -53,11 +53,6 @@ get_src_path() {
             echo "TODO"
             break
         fi
-        # if (echo "${path}" | grep -v -Eq '\/\d+\/'); then
-        #     # skip array indexes in path
-        #     ((i++))
-        #     continue
-        # fi
         value=$(echo ${source_paths} | get_value_for_path "${path}")
         src_path=$(echo ${vault_paths} | get_path_for_value "${value}" "0")
         if [[ "${src_path}" != "null" ]]; then
