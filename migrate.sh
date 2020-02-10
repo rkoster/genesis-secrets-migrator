@@ -93,7 +93,7 @@ for variable in $(spruce json ${target} | jq -r -c '.variables[] | @base64'); do
                 scope="$(echo ${name} | sed -e 's/_ca$//g')"
                 cert_path="${scope}/certs/ca:certificate"
                 key_path="${scope}/certs/ca:key"
-                ca="    ca: ((vault vault_prefix \"${scope}/certs/ca:certificate\" ))"
+                ca="    ca: ((vault vault_prefix \"application/certs/ca:ca\" ))"
             fi
             echo "- name: (( concat credhub_prefix \"/${name}\" ))"
             echo "  type: certificate"
