@@ -137,6 +137,12 @@ credentials:
   value:
     public_key: ((vault vault_prefix "uaa/jwt_signing_key:public"))
     private_key: ((vault vault_prefix "uaa/jwt_signing_key:private"))
+- name: (( concat credhub_prefix "/service_cf_internal_ca" ))
+  type: certificate
+  value:
+    certificate: ((vault vault_prefix "cf_internal/certs/ca:certificate"))
+    private_key: ((vault vault_prefix "cf_internal/certs/ca:key"))
+    ca: ((vault vault_prefix "cf_internal/certs/ca:certificate" ))
 - name: (( concat credhub_prefix "/blobstore_tls" ))
   type: certificate
   value:

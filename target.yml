@@ -2143,6 +2143,11 @@ variables:
   type: ssh
 - name: uaa_jwt_signing_key
   type: rsa
+- name: service_cf_internal_ca
+  options:
+    common_name: internalCA
+    is_ca: true
+  type: certificate
 - name: blobstore_tls
   options:
     ca: service_cf_internal_ca

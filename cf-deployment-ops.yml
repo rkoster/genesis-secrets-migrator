@@ -24,8 +24,6 @@
 
 # unused ca's
 - type: remove
-  path: /variables/name=service_cf_internal_ca
-- type: remove
   path: /variables/name=credhub_ca
 - type: remove
   path: /variables/name=metric_scraper_ca
