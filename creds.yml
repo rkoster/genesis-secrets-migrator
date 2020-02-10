@@ -39,43 +39,43 @@ credentials:
   value:
     certificate: ((vault vault_prefix "silk/certs/ca:certificate"))
     private_key: ((vault vault_prefix "silk/certs/ca:key"))
-
+    ca: ((vault vault_prefix "silk/certs/ca:certificate" ))
 - name: (( concat credhub_prefix "/silk_controller" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "silk/certs/controller:certificate"))
     private_key: ((vault vault_prefix "silk/certs/controller:key"))
-    ca: (( concat credhub_prefix "/silk_ca" ))
+    ca_name: (( concat credhub_prefix "/silk_ca" ))
 - name: (( concat credhub_prefix "/silk_daemon" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "silk/certs/daemon:certificate"))
     private_key: ((vault vault_prefix "silk/certs/daemon:key"))
-    ca: (( concat credhub_prefix "/silk_ca" ))
+    ca_name: (( concat credhub_prefix "/silk_ca" ))
 - name: (( concat credhub_prefix "/network_policy_ca" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "network_policy/certs/ca:certificate"))
     private_key: ((vault vault_prefix "network_policy/certs/ca:key"))
-
+    ca: ((vault vault_prefix "network_policy/certs/ca:certificate" ))
 - name: (( concat credhub_prefix "/network_policy_server_external" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "network_policy/certs/server_external:certificate"))
     private_key: ((vault vault_prefix "network_policy/certs/server_external:key"))
-    ca: (( concat credhub_prefix "/network_policy_ca" ))
+    ca_name: (( concat credhub_prefix "/network_policy_ca" ))
 - name: (( concat credhub_prefix "/network_policy_server" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "network_policy/certs/server:certificate"))
     private_key: ((vault vault_prefix "network_policy/certs/server:key"))
-    ca: (( concat credhub_prefix "/network_policy_ca" ))
+    ca_name: (( concat credhub_prefix "/network_policy_ca" ))
 - name: (( concat credhub_prefix "/network_policy_client" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "network_policy/certs/client:certificate"))
     private_key: ((vault vault_prefix "network_policy/certs/client:key"))
-    ca: (( concat credhub_prefix "/network_policy_ca" ))
+    ca_name: (( concat credhub_prefix "/network_policy_ca" ))
 - name: (( concat credhub_prefix "/uaa_clients_tcp_emitter_secret" ))
   type: password
   value: ((vault vault_prefix "uaa/client_secrets:tcp_emitter"))
@@ -142,247 +142,247 @@ credentials:
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/blobstore_tls:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/blobstore_tls:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/diego_auctioneer_client" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/diego_auctioneer_client:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/diego_auctioneer_client:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/diego_auctioneer_server" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/diego_auctioneer_server:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/diego_auctioneer_server:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/diego_bbs_client" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/diego_bbs_client:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/diego_bbs_client:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/diego_bbs_server" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/diego_bbs_server:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/diego_bbs_server:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/diego_rep_client" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/diego_rep_client:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/diego_rep_client:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/diego_rep_agent_v2" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/diego_rep_agent_v2:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/diego_rep_agent_v2:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/loggregator_ca" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "loggregator/certs/ca:certificate"))
     private_key: ((vault vault_prefix "loggregator/certs/ca:key"))
-
+    ca: ((vault vault_prefix "loggregator/certs/ca:certificate" ))
 - name: (( concat credhub_prefix "/loggregator_tls_statsdinjector" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "loggregator/certs/loggregator_tls_statsdinjector:certificate"))
     private_key: ((vault vault_prefix "loggregator/certs/loggregator_tls_statsdinjector:key"))
-    ca: (( concat credhub_prefix "/loggregator_ca" ))
+    ca_name: (( concat credhub_prefix "/loggregator_ca" ))
 - name: (( concat credhub_prefix "/loggregator_tls_agent" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "loggregator/certs/loggregator_tls_agent:certificate"))
     private_key: ((vault vault_prefix "loggregator/certs/loggregator_tls_agent:key"))
-    ca: (( concat credhub_prefix "/loggregator_ca" ))
+    ca_name: (( concat credhub_prefix "/loggregator_ca" ))
 - name: (( concat credhub_prefix "/loggregator_tls_doppler" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "loggregator/certs/loggregator_tls_doppler:certificate"))
     private_key: ((vault vault_prefix "loggregator/certs/loggregator_tls_doppler:key"))
-    ca: (( concat credhub_prefix "/loggregator_ca" ))
+    ca_name: (( concat credhub_prefix "/loggregator_ca" ))
 - name: (( concat credhub_prefix "/loggregator_tls_tc" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "loggregator/certs/loggregator_tls_tc:certificate"))
     private_key: ((vault vault_prefix "loggregator/certs/loggregator_tls_tc:key"))
-    ca: (( concat credhub_prefix "/loggregator_ca" ))
+    ca_name: (( concat credhub_prefix "/loggregator_ca" ))
 - name: (( concat credhub_prefix "/loggregator_tls_cc_tc" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/loggregator_tls_cc_tc:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/loggregator_tls_cc_tc:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/loggregator_rlp_gateway_tls_cc" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/loggregator_rlp_gateway_tls_cc:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/loggregator_rlp_gateway_tls_cc:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/loggregator_tls_rlp" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "loggregator/certs/loggregator_tls_rlp:certificate"))
     private_key: ((vault vault_prefix "loggregator/certs/loggregator_tls_rlp:key"))
-    ca: (( concat credhub_prefix "/loggregator_ca" ))
+    ca_name: (( concat credhub_prefix "/loggregator_ca" ))
 - name: (( concat credhub_prefix "/loggregator_rlp_gateway" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "loggregator/certs/loggregator_tls_rlp_gateway:certificate"))
     private_key: ((vault vault_prefix "loggregator/certs/loggregator_tls_rlp_gateway:key"))
-    ca: (( concat credhub_prefix "/loggregator_ca" ))
+    ca_name: (( concat credhub_prefix "/loggregator_ca" ))
 - name: (( concat credhub_prefix "/adapter_rlp_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "loggregator/certs/adapter_rlp_tls:certificate"))
     private_key: ((vault vault_prefix "loggregator/certs/adapter_rlp_tls:key"))
-    ca: (( concat credhub_prefix "/loggregator_ca" ))
+    ca_name: (( concat credhub_prefix "/loggregator_ca" ))
 - name: (( concat credhub_prefix "/scheduler_api_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/scheduler_api_tls:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/scheduler_api_tls:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/adapter_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "loggregator/certs/adapter_tls:certificate"))
     private_key: ((vault vault_prefix "loggregator/certs/adapter_tls:key"))
-    ca: (( concat credhub_prefix "/loggregator_ca" ))
+    ca_name: (( concat credhub_prefix "/loggregator_ca" ))
 - name: (( concat credhub_prefix "/scheduler_client_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "loggregator/certs/scheduler_client_tls:certificate"))
     private_key: ((vault vault_prefix "loggregator/certs/scheduler_client_tls:key"))
-    ca: (( concat credhub_prefix "/loggregator_ca" ))
+    ca_name: (( concat credhub_prefix "/loggregator_ca" ))
 - name: (( concat credhub_prefix "/logs_provider" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "loggregator/certs/logs_provider:certificate"))
     private_key: ((vault vault_prefix "loggregator/certs/logs_provider:key"))
-    ca: (( concat credhub_prefix "/loggregator_ca" ))
+    ca_name: (( concat credhub_prefix "/loggregator_ca" ))
 - name: (( concat credhub_prefix "/log_cache_ca" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "log_cache/certs/ca:certificate"))
     private_key: ((vault vault_prefix "log_cache/certs/ca:key"))
-
+    ca: ((vault vault_prefix "log_cache/certs/ca:certificate" ))
 - name: (( concat credhub_prefix "/log_cache" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "log_cache/certs/server:certificate"))
     private_key: ((vault vault_prefix "log_cache/certs/server:key"))
-    ca: (( concat credhub_prefix "/log_cache_ca" ))
+    ca_name: (( concat credhub_prefix "/log_cache_ca" ))
 - name: (( concat credhub_prefix "/cc_logcache_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "log_cache/certs/cc_logcache_tls:certificate"))
     private_key: ((vault vault_prefix "log_cache/certs/cc_logcache_tls:key"))
-    ca: (( concat credhub_prefix "/log_cache_ca" ))
+    ca_name: (( concat credhub_prefix "/log_cache_ca" ))
 - name: (( concat credhub_prefix "/logcache_ssl" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/logcache_ssl:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/logcache_ssl:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/log_cache_proxy_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "log_cache/certs/proxy_tls:certificate"))
     private_key: ((vault vault_prefix "log_cache/certs/proxy_tls:key"))
-    ca: (( concat credhub_prefix "/log_cache_ca" ))
+    ca_name: (( concat credhub_prefix "/log_cache_ca" ))
 - name: (( concat credhub_prefix "/router_ca" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "router/certs/ca:certificate"))
     private_key: ((vault vault_prefix "router/certs/ca:key"))
-
+    ca: ((vault vault_prefix "router/certs/ca:certificate" ))
 - name: (( concat credhub_prefix "/router_ssl" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "router/certs/ssl:certificate"))
     private_key: ((vault vault_prefix "router/certs/ssl:key"))
-    ca: (( concat credhub_prefix "/router_ca" ))
+    ca_name: (( concat credhub_prefix "/router_ca" ))
 - name: (( concat credhub_prefix "/routing_api_ca" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "routing_api/certs/ca:certificate"))
     private_key: ((vault vault_prefix "routing_api/certs/ca:key"))
-
+    ca: ((vault vault_prefix "routing_api/certs/ca:certificate" ))
 - name: (( concat credhub_prefix "/routing_api_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "routing_api/certs/server:certificate"))
     private_key: ((vault vault_prefix "routing_api/certs/server:key"))
-    ca: (( concat credhub_prefix "/routing_api_ca" ))
+    ca_name: (( concat credhub_prefix "/routing_api_ca" ))
 - name: (( concat credhub_prefix "/routing_api_tls_client" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "routing_api/certs/client:certificate"))
     private_key: ((vault vault_prefix "routing_api/certs/client:key"))
-    ca: (( concat credhub_prefix "/routing_api_ca" ))
+    ca_name: (( concat credhub_prefix "/routing_api_ca" ))
 - name: (( concat credhub_prefix "/uaa_ca" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "uaa/certs/ca:certificate"))
     private_key: ((vault vault_prefix "uaa/certs/ca:key"))
-
+    ca: ((vault vault_prefix "uaa/certs/ca:certificate" ))
 - name: (( concat credhub_prefix "/uaa_ssl" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "uaa/certs/ssl:certificate"))
     private_key: ((vault vault_prefix "uaa/certs/ssl:key"))
-    ca: (( concat credhub_prefix "/uaa_ca" ))
+    ca_name: (( concat credhub_prefix "/uaa_ca" ))
 - name: (( concat credhub_prefix "/uaa_login_saml" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "uaa/certs/login_saml:certificate"))
     private_key: ((vault vault_prefix "uaa/certs/login_saml:key"))
-    ca: (( concat credhub_prefix "/uaa_ca" ))
+    ca_name: (( concat credhub_prefix "/uaa_ca" ))
 - name: (( concat credhub_prefix "/cc_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/cc_tls:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/cc_tls:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/cc_public_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/cc_public_tls:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/cc_public_tls:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/cc_bridge_tps" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/cc_bridge_tps:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/cc_bridge_tps:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/cc_bridge_cc_uploader" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/cc_bridge_tps:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/cc_bridge_tps:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/cc_bridge_cc_uploader_server" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/cc_bridge_tps:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/cc_bridge_tps:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/diego_locket_server" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/diego_locket_server:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/diego_locket_server:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/diego_locket_client" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/diego_locket_client:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/diego_locket_client:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/locket_database_password" ))
   type: password
   value: ((vault vault_prefix "autoscalerdb:password"))
@@ -391,76 +391,76 @@ credentials:
   value:
     certificate: ((vault vault_prefix "application/certs/ca:certificate"))
     private_key: ((vault vault_prefix "application/certs/ca:key"))
-
+    ca: ((vault vault_prefix "application/certs/ca:certificate" ))
 - name: (( concat credhub_prefix "/diego_instance_identity_ca" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "diego_instance_identity/certs/ca:certificate"))
     private_key: ((vault vault_prefix "diego_instance_identity/certs/ca:key"))
-
+    ca: ((vault vault_prefix "diego_instance_identity/certs/ca:certificate" ))
 - name: (( concat credhub_prefix "/gorouter_backend_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/gorouter_backend_tls:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/gorouter_backend_tls:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/ssh_proxy_backends_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/ssh_proxy_backends_tls:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/ssh_proxy_backends_tls:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/loggregator_rlp_gateway_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/loggregator_rlp_gateway_tls:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/loggregator_rlp_gateway_tls:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/loggregator_trafficcontroller_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "cf_internal/certs/loggregator_trafficcontroller_tls:certificate"))
     private_key: ((vault vault_prefix "cf_internal/certs/loggregator_trafficcontroller_tls:key"))
-    ca: (( concat credhub_prefix "/service_cf_internal_ca" ))
+    ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/log_cache_metrics_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "metrics/certs/log_cache_metrics_tls:certificate"))
     private_key: ((vault vault_prefix "metrics/certs/log_cache_metrics_tls:key"))
-    ca: (( concat credhub_prefix "/metric_scraper_ca" ))
+    ca_name: (( concat credhub_prefix "/metric_scraper_ca" ))
 - name: (( concat credhub_prefix "/log_cache_cf_auth_proxy_metrics_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "metrics/certs/log_cache_cf_auth_proxy_metrics_tls:certificate"))
     private_key: ((vault vault_prefix "metrics/certs/log_cache_cf_auth_proxy_metrics_tls:key"))
-    ca: (( concat credhub_prefix "/metric_scraper_ca" ))
+    ca_name: (( concat credhub_prefix "/metric_scraper_ca" ))
 - name: (( concat credhub_prefix "/log_cache_gateway_metrics_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "metrics/certs/log_cache_gateway_metrics_tls:certificate"))
     private_key: ((vault vault_prefix "metrics/certs/log_cache_gateway_metrics_tls:key"))
-    ca: (( concat credhub_prefix "/metric_scraper_ca" ))
+    ca_name: (( concat credhub_prefix "/metric_scraper_ca" ))
 - name: (( concat credhub_prefix "/loggregator_agent_metrics_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "metrics/certs/loggregator_agent_metrics_tls:certificate"))
     private_key: ((vault vault_prefix "metrics/certs/loggregator_agent_metrics_tls:key"))
-    ca: (( concat credhub_prefix "/metric_scraper_ca" ))
+    ca_name: (( concat credhub_prefix "/metric_scraper_ca" ))
 - name: (( concat credhub_prefix "/prom_scraper_scrape_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "metrics/certs/prom_scraper_scrape_tls:certificate"))
     private_key: ((vault vault_prefix "metrics/certs/prom_scraper_scrape_tls:key"))
-    ca: (( concat credhub_prefix "/metric_scraper_ca" ))
+    ca_name: (( concat credhub_prefix "/metric_scraper_ca" ))
 - name: (( concat credhub_prefix "/prom_scraper_metrics_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "metrics/certs/prom_scraper_metrics_tls:certificate"))
     private_key: ((vault vault_prefix "metrics/certs/prom_scraper_metrics_tls:key"))
-    ca: (( concat credhub_prefix "/metric_scraper_ca" ))
+    ca_name: (( concat credhub_prefix "/metric_scraper_ca" ))
 - name: (( concat credhub_prefix "/rlp_gateway_metrics_tls" ))
   type: certificate
   value:
     certificate: ((vault vault_prefix "metrics/certs/rlp_gateway_metrics_tls:certificate"))
     private_key: ((vault vault_prefix "metrics/certs/rlp_gateway_metrics_tls:key"))
-    ca: (( concat credhub_prefix "/metric_scraper_ca" ))
+    ca_name: (( concat credhub_prefix "/metric_scraper_ca" ))
