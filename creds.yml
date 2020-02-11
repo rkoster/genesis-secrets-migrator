@@ -368,14 +368,14 @@ credentials:
 - name: (( concat credhub_prefix "/cc_bridge_cc_uploader" ))
   type: certificate
   value:
-    certificate: ((vault vault_prefix "cf_internal/certs/cc_bridge_tps:certificate"))
-    private_key: ((vault vault_prefix "cf_internal/certs/cc_bridge_tps:key"))
+    certificate: ((vault vault_prefix "cf_internal/certs/cc_bridge_cc_uploader:certificate"))
+    private_key: ((vault vault_prefix "cf_internal/certs/cc_bridge_cc_uploader:key"))
     ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/cc_bridge_cc_uploader_server" ))
   type: certificate
   value:
-    certificate: ((vault vault_prefix "cf_internal/certs/cc_bridge_tps:certificate"))
-    private_key: ((vault vault_prefix "cf_internal/certs/cc_bridge_tps:key"))
+    certificate: ((vault vault_prefix "cf_internal/certs/cc_bridge_cc_uploader_server:certificate"))
+    private_key: ((vault vault_prefix "cf_internal/certs/cc_bridge_cc_uploader_server:key"))
     ca_name: (( concat credhub_prefix "/service_cf_internal_ca" ))
 - name: (( concat credhub_prefix "/diego_locket_server" ))
   type: certificate
